@@ -13,15 +13,13 @@ router.get('/computation', function(req, res, next) {
     var lastDigit = id % 10;
     var functionName;
 
-    // Select the appropriate Math function based on the last digit of the ID
-    switch(lastDigit) {
-        case 7:
-            functionName = Math.cos;
-            break;
-        // Handle other cases if necessary
-        default:
-            functionName = Math.abs; // Default to Math.abs if no specific function is defined
+    if(lastDigit==7){
+        functionName = Math.cos;
+    }else{
+        functionName=Math.abs;
     }
+          
+        
     
     // Apply the selected Math function to the random value or query argument
     var result = functionName(x);
